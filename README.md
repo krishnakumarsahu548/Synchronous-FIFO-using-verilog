@@ -42,3 +42,5 @@ The included testbench verifies:
 <img width="1920" height="1018" alt="image" src="https://github.com/user-attachments/assets/d09f5ab6-7f50-4d99-a781-a98441c8c9cd" />
 
 ## simu
+<img width="1638" height="473" alt="image" src="https://github.com/user-attachments/assets/c064300d-686a-4c4a-9c1a-5bda3b9e48c7" />
+
