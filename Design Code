@@ -1,0 +1,24 @@
+`timescale 1ns / 1ps
+  module FIFO(output reg [3:0] dout = 0 , output full , empty ,
+    input rst , clk , wr , input [3:0] din);
+    
+   reg [2:0] rp, wp ;
+    reg [3:0] fifo [0:7] ;
+    integer k ;
+    
+   always@ (posedge clk) begin
+    if (rst) begin wp <= 0 ; rp <= 0 ;
+    dout <= 4'd0 ;
+    for (k=0 ; k<=7 ; k=k+1)
+    fifo[k] <= 4'd0 ; end
+    else if (wr==1 && full==0) begin
+    fifo[wp] <= din ;
+    wp <= wp + 3'd1 ; end
+    else if (wr==0 && empty==0) begin
+    dout <= fifo[rp] ;
+    rp <= rp + 3'd1 ; end
+    end
+    
+   assign full = (wp-rp==3'd7) ? 1'd1 : 1'd0 ;
+    assign empty = (wp-rp==3'd0) ? 1'd1 : 1'd0 ;
+    endmodule
